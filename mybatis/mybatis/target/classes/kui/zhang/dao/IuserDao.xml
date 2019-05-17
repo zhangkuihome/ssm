@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--确定该方法在哪个dao接口-->
+<mapper namespace="kui.zhang.dao.IuserDao">
+    <!--resultype封装结果到哪个类-->
+  <select id="find" resultType="user">
+      select * from account
+  </select>
+        </mapper>

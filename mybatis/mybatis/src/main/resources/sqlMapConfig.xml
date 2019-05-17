@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--1.引用外部资源 properties-->
+    <properties resource="jdbcConfig.properties"></properties>
+    <!--起别名 只能配置domain中的别名 -->
+    <typeAliases>
+        <!--type指定实体咧全限定类名  alias属性指定别名,指定了别名就不在区分大小写-->
+        <!--<typeAlias type="kui.zhang.domain.User" alias="user"></typeAlias>-->
+        <!--用于指定要配置别名的包,指定后,该包下所有实体类都会注册别名,并且类名就是别名,不区分大小写-->
+        <package name="kui.zhang.domain"></package>
+    </typeAliases>
+    <!--2.配置mybatis环境  environments-->
+    <environments default="mysql">
+        <!--3.配置mysql环境 environment-->
+        <environment id="mysql">
+            <!--4.配置事物类型transactionManager JDBC或者MANAGED-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--5.配置数据源 dataSource 3种-->
+            <dataSource type="POOLED">
+                <!--6.配置数据连接信息 property-->
+                <property name="driver" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+                <!--JDBC驱动-->
+                <!--数据库地址-->
+                <!--用户名-->
+                <!--密码-->
+            </dataSource>
+        </environment>
+    </environments>
+
+
+
+
+
+    <!--7是定映射文件配置位置 mappers-->
+    <mappers>
+        <!--<mapper resource="kui/zhang/dao/IuserDao.xml"></mapper>-->
+        <!--packge标签用于指定dao接口所在的包当指定了之后就不用再写Mapper以及resource或者.class了-->
+        <package name="kui.zhang.dao"></package>
+    </mappers>
+</configuration>
